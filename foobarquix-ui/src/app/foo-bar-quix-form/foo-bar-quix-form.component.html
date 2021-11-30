@@ -1,3 +1,18 @@
-<div class="container"> 
-    To Be Completed
+<div class="container">
+  <form [formGroup] = "conversionForm">
+    <div class="input-group">
+      <label for="inputNumber">Number to convert</label>
+      <input id="inputNumber" class="form-control" formControlName="inputNumber" placeholder="Enter a number"/>
+      <div *ngIf="conversionForm.controls['inputNumber'].invalid && (conversionForm.controls['inputNumber'].dirty || conversionForm.controls['inputNumber'].touched)">
+        <div *ngIf="conversionForm.controls['inputNumber'].errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+        <div *ngIf="conversionForm.controls['inputNumber'].errors?.pattern" class="alert alert-danger">
+          You must enter a valid number
+        </div>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitNumber()" [disabled]="conversionForm.invalid">Convert</button>
+  </form>
 </div>

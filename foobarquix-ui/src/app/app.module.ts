@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FooBarQuixFormComponent } from './foo-bar-quix-form/foo-bar-quix-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooBarQuixComponent } from './foo-bar-quix/foo-bar-quix.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
@@ -17,15 +17,16 @@ import { BackEndInstructionComponent } from './back-end-instruction/back-end-ins
     FooBarQuixFormComponent,
     FooBarQuixComponent,
     HomeComponent,
-    NavBarComponent, 
+    NavBarComponent,
     FrontEndInstructionComponent,
     BackEndInstructionComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule,
+    BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
+      { path: 'foo-bar-quix', component: FooBarQuixComponent}
     ])
   ],
   providers: [
